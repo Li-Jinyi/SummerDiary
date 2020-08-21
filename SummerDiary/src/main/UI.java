@@ -8,20 +8,30 @@ public class UI
 	private Player p;
 	private Player[] players;
 	private Generator g;
+	private Names names;
+	
+	private int[] genders;
 	//String name, int score, String[] titles, int titleNumber, int heart, int page
 	
-	public String welcome()
+	public void welcome()
 	{
-		String i = "欢迎大家来到暑假日记~~相信规则都已经明白了吧^_^\n"
-				 + "那么事不宜迟，就让我们开始吧！\n\n"
-				 + "请问有几位玩家呢？ （虽然知道肯定是三位但还是要问一下的，输入数字）\n";
-		return i;
+		System.out.print("欢迎大家来到暑假日记~~相信规则都已经明白了吧^_^\n"
+				 	   + "那么事不宜迟，就让我们开始吧！\n\n"
+				 	   + "第一位玩家 ~");
+		setupPlayer();
+		
 	}
 	
-	public void setupPlayer()
+	public Player setupPlayer()
 	{
-		System.out.print("请选择姓名~\n");
+		System.out.print("请选择姓名~（输入数字）\n\n");
+		names.printNames();
+		int name = getIntInput();
+		names.removeName(name-1);
 		
+		System.out.print("");
+		
+		return p;
 	}
 	
 	public int getIntInput()
@@ -34,5 +44,11 @@ public class UI
 	{
 		String s = sc.next();
 		return s;
+	}
+	
+	public int[] countData(int[] data)
+	{
+		int[] Data = {};
+		return Data;
 	}
 }
