@@ -72,4 +72,41 @@ public class UI
 		int[] Data = {};
 		return Data;
 	}
+	
+	public void printPlayersData()
+	{
+		for (int i = 0; i < players.size(); i++)
+		{
+			p = players.get(i);
+			
+			String male 	= "男";
+			String female 	= "女";
+			
+			String name 	= p.getName();
+			String gender 	= p.getGender() == 0 ? male : female;
+			int score 		= p.getScore();
+			int page 		= p.getPage();
+			int heart 		= p.getHeart();
+			int titleNumber = p.getTitleNumber();
+			
+			System.out.print(i + ".\t姓名:\t" 	+ name 			+ "\n"
+							   + "\t性别:\t" 	+ gender 		+ "\n"
+							   + "\t分数：\t" 	+ score 		+ "\n"
+							   + "\t作业页数：\t" + page 			+ "\n"
+							   + "\t获得爱心：\t" + heart 		+ "\n"
+							   + "\t头衔数：\t" 	+ titleNumber 	+ "\n"
+							   + "\t头衔：\t");
+		}
+	}
+	
+	public void printTitles(Player pl)
+	{
+		List<String> titles = pl.getTitles();
+		
+		for (int i = 0; i < titles.size(); i++)
+		{
+			String title = titles.get(i);
+			
+		}
+	}
 }
