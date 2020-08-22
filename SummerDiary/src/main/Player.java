@@ -1,14 +1,22 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player 
 {
 	private String name;
 	private int score;
-	private String[] titles;
+	private List<String> titles = new ArrayList<String>();
 	private int titleNumber;
 	private int heart;					// refer to heart got from others
 	private int page;					// refer to pages of homework completed
 	private int gender;
+	
+	public Player(String name, int score, List<String> titles, int titleNumber, int heart, int page, int gender)
+	{
+		
+	}
 	
 	public String getName() 
 	{
@@ -30,12 +38,12 @@ public class Player
 		this.score = score;
 	}
 	
-	public String[] getTitles() 
+	public List<String> getTitles() 
 	{
 		return titles;
 	}
 	
-	public void setTitles(String[] titles) 
+	public void setTitles(List<String> titles) 
 	{
 		this.titles = titles;
 	}
@@ -80,18 +88,5 @@ public class Player
 		this.gender = gender;
 	}
 
-	public Player setPlayer(String name, int score, String[] titles, int titleNumber, int heart, int page, int gender)
-	{
-		Player p = new Player();
-		
-		p.setName(name);
-		p.setScore(score);
-		p.setTitles(titles);
-		p.setTitleNumber(titleNumber);
-		p.setHeart(heart);
-		p.setPage(page);
-		p.setGender(gender);
-		
-		return p;
-	}
+	
 }
