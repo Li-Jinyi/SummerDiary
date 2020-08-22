@@ -6,9 +6,8 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		Names n = new Names();
-		n.setNames();
-		n.printNames();
+		UI ui = new UI();
+		ui.welcome();
 	}
 
 }

@@ -17,6 +17,8 @@ public class UI
 	
 	public void welcome()
 	{
+		names = new Names();
+		names.setNames();
 		System.out.print("欢迎大家来到暑假日记~~相信规则都已经明白了吧^_^\n"
 				 	   + "那么事不宜迟，就让我们开始吧！\n\n"
 				 	   + "第一位玩家 ~");
