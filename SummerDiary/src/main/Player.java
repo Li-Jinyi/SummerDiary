@@ -15,7 +15,13 @@ public class Player
 	
 	public Player(String name, int score, List<String> titles, int titleNumber, int heart, int page, int gender)
 	{
-		
+		setName(name);
+		setScore(score);
+		setTitles(titles);
+		setTitleNumber(titleNumber);
+		setHeart(heart);
+		setPage(page);
+		setGender(gender);
 	}
 	
 	public String getName() 

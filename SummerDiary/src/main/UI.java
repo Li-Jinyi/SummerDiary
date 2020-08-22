@@ -29,6 +29,8 @@ public class UI
 		
 		System.out.print("\n\n第三位玩家~");
 		players.add(setupPlayer());
+		
+		printPlayersData();
 		System.out.print("\n\n信息收录完毕，开始游戏了呦~哈吉马路！\n\n");
 	}
 	
@@ -43,9 +45,7 @@ public class UI
 		System.out.print("请选择性别~（输入数字，0为男，1为女）\n");
 		int gender = getIntInput();
 		
-		p = new Player(name, 0, new ArrayList<String>() , 0, 0, 0, gender);
-		
-		return p;
+		return new Player(name, 0, new ArrayList<String>() , 0, 0, 0, gender);
 	}
 	
 	public Player setPlayer(String name, int score, List<String> titles, int titleNumber, int heart, int page, int gender)
@@ -77,25 +77,34 @@ public class UI
 	{
 		for (int i = 0; i < players.size(); i++)
 		{
-			p = players.get(i);
+			Player pl = players.get(i);
 			
 			String male 	= "男";
 			String female 	= "女";
 			
-			String name 	= p.getName();
-			String gender 	= p.getGender() == 0 ? male : female;
-			int score 		= p.getScore();
-			int page 		= p.getPage();
-			int heart 		= p.getHeart();
-			int titleNumber = p.getTitleNumber();
+			String name 	= pl.getName();
+			String gender 	= pl.getGender() == 0 ? male : female;
+			int score 		= pl.getScore();
+			int page 		= pl.getPage();
+			int heart 		= pl.getHeart();
+			int titleNumber = pl.getTitleNumber();
 			
-			System.out.print(i + ".\t姓名:\t" 	+ name 			+ "\n"
-							   + "\t性别:\t" 	+ gender 		+ "\n"
-							   + "\t分数：\t" 	+ score 		+ "\n"
-							   + "\t作业页数：\t" + page 			+ "\n"
-							   + "\t获得爱心：\t" + heart 		+ "\n"
-							   + "\t头衔数：\t" 	+ titleNumber 	+ "\n"
-							   + "\t头衔：\t");
+			System.out.print("\n" + (i+1) + ".\t姓名:\t\t" 	+ name 			+ "\n"
+										  + "\t性别:\t\t" 	+ gender 		+ "\n"
+										  + "\t分数：\t\t" 	+ score 		+ "\n"
+										  + "\t作业页数：\t" 	+ page 			+ "\n"
+										  + "\t获得爱心：\t" 	+ heart 		+ "\n"
+										  + "\t头衔数：\t\t" 	+ titleNumber 	+ "\n"
+										  + "\t头衔：\n");
+			
+			if (titleNumber > 0)
+			{
+				printTitles(p);
+			}
+			else
+			{
+				System.out.print("无\n");
+			}
 		}
 	}
 	
@@ -106,7 +115,7 @@ public class UI
 		for (int i = 0; i < titles.size(); i++)
 		{
 			String title = titles.get(i);
-			
+			System.out.print("\t\t\t" + title + "\n");
 		}
 	}
 }
