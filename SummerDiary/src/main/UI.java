@@ -50,7 +50,7 @@ public class UI
 	
 	public Player setPlayer(String name, int score, List<String> titles, int titleNumber, int heart, int page, int gender)
 	{
-		Player p = new Player(name, gender, titles, titleNumber, heart, page, gender);
+		Player p = new Player(name, score, titles, titleNumber, heart, page, gender);
 		
 		return p;
 	}
