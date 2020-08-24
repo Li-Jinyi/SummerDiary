@@ -38,10 +38,10 @@ public class UI
 	{
 		for (int i = 0; i < 8; i++)
 		{
-			System.out.print("第"+ (i+1) +"周的生活开始啦，请第");
+			System.out.print("第"+ (i+1) +"周的生活开始啦，");
 			for (int j = 0; j < 3; j++)
 			{
-				System.out.print((j+1) + "位玩家舍弃以下的一种活动，并组织另外两项\n");
+				System.out.print("请第" + (j+1) + "位玩家舍弃以下的一种活动，并组织另外两项\n");
 				
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();

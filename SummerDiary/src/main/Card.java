@@ -5,11 +5,12 @@ public class Card
 	private int ID;
 	private String name;
 	private int day;
+	private int heart;
 	private int[] scores;
 	private int[] pages;
 	private String title;
 	
-	public Card(int ID, String name, int day, int[] scores, int[] pages, String title)
+	public Card(int ID, String name, int day, int heart, int[] scores, int[] pages, String title)
 	{
 		setID(ID);
 		setName(name);
@@ -47,6 +48,16 @@ public class Card
 	public void setDay(int day) 
 	{
 		this.day = day;
+	}
+	
+	public int getHeart()
+	{
+		return heart;
+	}
+	
+	public void setHeart(int heart)
+	{
+		this.heart = heart;
 	}
 	
 	public int[] getScores() 
