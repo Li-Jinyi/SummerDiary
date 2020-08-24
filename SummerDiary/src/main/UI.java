@@ -34,6 +34,21 @@ public class UI
 		System.out.print("\n\n信息收录完毕，开始游戏了呦~哈吉马路！\n\n");
 	}
 	
+	public void game()
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			System.out.print("第"+ (i+1) +"周的生活开始啦，请第");
+			for (int j = 0; j < 3; j++)
+			{
+				System.out.print((j+1) + "位玩家舍弃以下的一种活动，并组织另外两项\n");
+				
+				System.out.print("请选择舍弃的活动（输入数字）\n");
+				int discard = getIntInput();
+			}
+		}
+	}
+	
 	public Player setupPlayer()
 	{
 		System.out.print("请选择姓名~（输入数字）\n\n");

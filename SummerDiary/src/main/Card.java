@@ -5,8 +5,19 @@ public class Card
 	private int ID;
 	private String name;
 	private int day;
-	private int score;
+	private int[] scores;
+	private int[] pages;
 	private String title;
+	
+	public Card(int ID, String name, int day, int[] scores, int[] pages, String title)
+	{
+		setID(ID);
+		setName(name);
+		setDay(day);
+		setScores(scores);
+		setPages(pages);
+		setTitle(title);
+	}
 	
 	public int getID() 
 	{
@@ -38,14 +49,24 @@ public class Card
 		this.day = day;
 	}
 	
-	public int getScore() 
+	public int[] getScores() 
 	{
-		return score;
+		return scores;
 	}
 	
-	public void setScore(int score) 
+	public void setScores(int[] scores) 
 	{
-		this.score = score;
+		this.scores = scores;
+	}
+	
+	public int[] getPages()
+	{
+		return pages;
+	}
+	
+	public void setPages(int[] pages)
+	{
+		this.pages = pages;
 	}
 	
 	public String getTitle() 
