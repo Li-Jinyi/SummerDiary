@@ -37,6 +37,28 @@ public class Setup
 		cardsTWO[5] = new Card(12, 	"For The King！！", 			0, 0, new int[] {}, null, "");
 	}
 	
+	public void setupCardsTHREE()
+	{
+		cardsTHREE = new Card[6];
+		
+		cardsTHREE[0] = new Card(13, "我抢到CP展的门票了", 		0, 0, new int[] {}, null, "");
+		cardsTHREE[1] = new Card(14, "逛GAI", 					0, 0, new int[] {}, null, "");
+		cardsTHREE[2] = new Card(15, "家庭旅行", 					0, 0, new int[] {}, null, "");
+		cardsTHREE[3] = new Card(16, "巴蜀三日游", 				0, 0, new int[] {}, null, "");
+		cardsTHREE[4] = new Card(17, "游戏，不打不行！", 			0, 0, new int[] {}, null, "");
+		cardsTHREE[5] = new Card(18, "帮TA穿女装", 				0, 0, new int[] {}, null, "");
+	}
 	
+	public void setupCardsFOUR()
+	{
+		cardsFOUR = new Card[6];
+		
+		cardsFOUR[0] = new Card(19,  "啊啊啊要来不及写作业了！", 	0, 0, new int[] {}, null, "");
+		cardsFOUR[1] = new Card(20,  "作业？我就是要打游戏！", 		0, 0, new int[] {}, null, "");
+		cardsFOUR[2] = new Card(21,  "再来一次海底捞吧", 			0, 0, new int[] {}, null, "");
+		cardsFOUR[3] = new Card(22,  "甄嬛传还是好看的呀", 		0, 0, new int[] {}, null, "");
+		cardsFOUR[4] = new Card(23,  "去迪士尼VAN~", 				0, 0, new int[] {}, null, "");
+		cardsFOUR[5] = new Card(24,  "谁是运气王！", 				0, 0, new int[] {}, null, "");
+	}
 	
 }
