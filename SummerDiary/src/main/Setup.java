@@ -29,12 +29,14 @@ public class Setup
 	{
 		cardsTWO = new Card[6];
 		
-		cardsTWO[0] = new Card(7, 	null, 0, 0, null, null, null);
-		cardsTWO[1] = new Card(8, 	null, 0, 0, null, null, null);
-		cardsTWO[2] = new Card(9, 	null, 0, 0, null, null, null);
-		cardsTWO[3] = new Card(10, 	null, 0, 0, null, null, null);
-		cardsTWO[4] = new Card(11, 	null, 0, 0, null, null, null);
-		cardsTWO[5] = new Card(12, 	null, 0, 0, null, null, null);
+		cardsTWO[0] = new Card(7, 	"听说罗小黑大电影上映了", 		0, 0, new int[] {}, null, "");
+		cardsTWO[1] = new Card(8, 	"一起来L4D2吧！", 			0, 0, new int[] {}, null, "");
+		cardsTWO[2] = new Card(9, 	"MC才是坠吼滴！", 			0, 0, new int[] {}, null, "");
+		cardsTWO[3] = new Card(10, 	"锡惠公园好像也不错", 			0, 0, new int[] {}, null, "");
+		cardsTWO[4] = new Card(11, 	"啊太湖的水我的泪", 			0, 0, new int[] {}, null, "");
+		cardsTWO[5] = new Card(12, 	"For The King！！", 			0, 0, new int[] {}, null, "");
 	}
+	
+	
 	
 }
