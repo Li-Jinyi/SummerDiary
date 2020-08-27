@@ -29,12 +29,12 @@ public class Setup
 	{
 		cardsTWO = new Card[6];
 		
-		cardsTWO[0] = new Card(7, 	"听说罗小黑大电影上映了", 		0, 0, new int[] {}, null, "");
-		cardsTWO[1] = new Card(8, 	"一起来L4D2吧！", 			0, 0, new int[] {}, null, "");
-		cardsTWO[2] = new Card(9, 	"MC才是坠吼滴！", 			0, 0, new int[] {}, null, "");
-		cardsTWO[3] = new Card(10, 	"锡惠公园好像也不错", 			0, 0, new int[] {}, null, "");
-		cardsTWO[4] = new Card(11, 	"啊太湖的水我的泪", 			0, 0, new int[] {}, null, "");
-		cardsTWO[5] = new Card(12, 	"For The King！！", 			0, 0, new int[] {}, null, "");
+		cardsTWO[0] = new Card(7, 	"听说罗小黑大电影上映了", 		1, 2, new int[] {6, 4, 4}, 	null, "零食套餐我都买不了");
+		cardsTWO[1] = new Card(8, 	"一起来L4D2吧！", 			1, 1, new int[] {6, 4, 2}, 	null, "你们三个怎么落单了");
+		cardsTWO[2] = new Card(9, 	"MC才是坠吼滴！", 			1, 1, new int[] {8, 6, 2}, 	null, "为什么要开服务器？");
+		cardsTWO[3] = new Card(10, 	"锡惠公园好像也不错", 			2, 2, new int[] {8, 6, 12}, null, "蓝蓝的天空银河里");
+		cardsTWO[4] = new Card(11, 	"啊太湖的水我的泪", 			2, 3, new int[] {10, 8, 6}, null, "有只小白船");
+		cardsTWO[5] = new Card(12, 	"For The King！！", 			1, 1, new int[] {8, 6}, 	null, "一人分饰多角");
 	}
 	
 	public void setupCardsTHREE()
