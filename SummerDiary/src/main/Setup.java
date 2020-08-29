@@ -6,6 +6,7 @@ public class Setup
 	private Card[] cardsTWO;
 	private Card[] cardsTHREE;
 	private Card[] cardsFOUR;
+	private Generator g;
 	
 	public void setupCards()
 	{
@@ -53,12 +54,24 @@ public class Setup
 	{
 		cardsFOUR = new Card[6];
 		
-		cardsFOUR[0] = new Card(19,  "啊啊啊要来不及写作业了！", 	0, 0, new int[] {}, null, "");
-		cardsFOUR[1] = new Card(20,  "作业？我就是要打游戏！", 	0, 0, new int[] {}, null, "");
-		cardsFOUR[2] = new Card(21,  "再来一次海底捞吧", 			0, 0, new int[] {}, null, "");
-		cardsFOUR[3] = new Card(22,  "甄嬛传还是好看的呀", 		0, 0, new int[] {}, null, "");
-		cardsFOUR[4] = new Card(23,  "去迪士尼VAN~", 			0, 0, new int[] {}, null, "");
-		cardsFOUR[5] = new Card(24,  "谁是运气王！", 				0, 0, new int[] {}, null, "");
+		cardsFOUR[0] = new Card(19,  "啊啊啊要来不及写作业了！", 	1, 0, null, randomNumber(),		  "你们都做完了？");
+		cardsFOUR[1] = new Card(20,  "作业？我就是要打游戏！", 	1, 0, new int[] {4, 2}, 	null, "那你很勇哦");
+		cardsFOUR[2] = new Card(21,  "再来一次海底捞吧", 			1, 0, new int[] {8, 6}, 	null, "到头来不过是");
+		cardsFOUR[3] = new Card(22,  "甄嬛传还是好看的呀", 		1, 0, new int[] {6, 4}, 	null, null);
+		cardsFOUR[4] = new Card(23,  "去迪士尼VAN~", 			3, 0, new int[] {12, 8, 6}, null, "我很快乐，真的");
+		cardsFOUR[5] = new Card(24,  "谁是运气王！", 				1, 0, randomNumber(), 		null, null);
+	}
+	
+	public int[] randomNumber()
+	{
+		g = new Generator();
+		int i = g.generateRandomNumber();
+		int j = g.generateRandomNumber();
+		int k = g.generateRandomNumber();
+		
+		int[] array = {i, j, k};
+		
+		return array;
 	}
 	
 }
