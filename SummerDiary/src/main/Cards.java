@@ -65,6 +65,11 @@ public class Cards
 		cardsFOUR[5] = new Card(24,  "谁是运气王！", 				1, 0, randomNumber(), 		null, null);
 	}
 	
+	public void printCard(Card card)
+	{
+		
+	}
+	
 	public int[] randomNumber()
 	{
 		int i = g.generateRandomNumber();
