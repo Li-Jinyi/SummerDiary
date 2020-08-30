@@ -21,8 +21,8 @@ public class Cards
 	{
 		cardsONE = new Card[6];
 		
-		cardsONE[0] = new Card(1, 	"TA回来啦！去机场接TA吧！", 	1, 1, new int[] {6, 4, 0}, 	null, "怎么就你一个啊");
-		cardsONE[1] = new Card(2, 	"真人剧本杀", 				1, 2, new int[] {4, 2, 0}, 	null, "我福尔摩斯不需要别人的帮助！");
+		cardsONE[0] = new Card(1, 	"TA回来啦！去机场接TA吧！", 	1, 1, new int[] {6, 4}, 	null, "怎么就你一个啊");
+		cardsONE[1] = new Card(2, 	"真人剧本杀", 				1, 2, new int[] {4, 2}, 	null, "我福尔摩斯不需要别人的帮助！");
 		cardsONE[2] = new Card(3, 	"回一中", 					1, 3, new int[] {8, 6, 10}, null, "哦， 是你啊");
 		cardsONE[3] = new Card(4, 	"KTV小跳蛙！", 				1, 2, new int[] {6, 4, 8}, 	null, "见习魔法师");
 		cardsONE[4] = new Card(5, 	"海底捞", 					1, 2, new int[] {6, 4, 2}, 	null, null);
@@ -67,7 +67,95 @@ public class Cards
 	
 	public void printCard(Card card)
 	{
+		int id 			= card.getID();
+		int day 		= card.getDay();
+		int heart 		= card.getHeart();
+		String title 	= card.getTitle();
 		
+		if (id == 1 || id == 2 || id == 13 || id == 17 || id == 20 || id == 21)
+		{
+			System.out.print("多人出游：每人+" + card.getScores()[0] + "分\n" +
+							 "单人出游：每人+" + card.getScores()[1] + "分");
+			if (!(title == null))
+			{
+				System.out.print("，并获得称号：" + title);
+			}
+			System.out.print("\n天数：" + day + "\n" + 
+							 "爱心：" + heart);
+			
+		}
+		else if (id == 6 || id == 8 || id == 15)
+		{
+			System.out.print("偶数人出游：每人+" + card.getScores()[0] + "分\n" +
+					 		 "奇数人出游：每人+" + card.getScores()[1] + "分");
+			if (card.getScores().length == 3)
+			{
+				System.out.print("\n单人出游：每人+" + card.getScores()[2] + "分");
+			}
+			if (!(title == null))
+			{
+				System.out.print("，并获得称号：" + title);
+			}
+			System.out.print("\n天数：" + day + "\n" + 
+							 "爱心：" + heart);
+		}
+		else if (id == 7 || id == 9 || id == 16 || id == 23)
+		{
+			System.out.print("奇数人出游：每人+" + card.getScores()[0] + "分\n" +
+			 		 		 "偶数人出游：每人+" + card.getScores()[1] + "分");
+			if (card.getScores().length == 3)
+			{
+				System.out.print("\n单人出游：每人+" + card.getScores()[2] + "分");
+			}
+			if (!(title == null))
+			{
+				System.out.print("，并获得称号：" + title);
+			}
+			System.out.print("\n天数：" + day + "\n" + 
+					 		 "爱心：" + heart);
+		}
+		else if (id == 3 || id == 4 || id == 10 || id == 11 || id == 18 || id == 22)
+		{
+			System.out.print("同性出游：每人+" + card.getScores()[0] + "分\n" +
+							 "异性出游：每人+" + card.getScores()[1] + "分");
+			if (card.getScores().length == 3)
+			{
+				System.out.print("\n单人出游：每人+" + card.getScores()[2] + "分");
+			}
+			if (!(title == null))
+			{
+				System.out.print("，并获得称号：" + title);
+			}
+			System.out.print("\n天数：" + day + "\n" + 
+			 		 		 "爱心：" + heart);
+		}
+		else if (id == 5 || id == 14)
+		{
+			System.out.print("异性出游：每人+" + card.getScores()[0] + "分\n" +
+					 		 "同性出游：每人+" + card.getScores()[1] + "分");
+			if (card.getScores().length == 3)
+			{
+				System.out.print("\n单人出游：每人+" + card.getScores()[2] + "分");
+			}
+			if (!(title == null))
+			{
+				System.out.print("，并获得称号：" + title);
+			}
+			System.out.print("\n天数：" + day + "\n" + 
+	 		 		 		 "爱心：" + heart);
+		}
+		else if (id == 12)
+		{
+			
+		}
+		else if (id == 19)
+		{
+			
+		}
+		else
+		{
+			
+		}
 	}
 	
 	public int[] randomNumber()
