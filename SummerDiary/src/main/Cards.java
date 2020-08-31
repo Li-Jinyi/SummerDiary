@@ -93,7 +93,7 @@ public class Cards
 		int heart 		= card.getHeart();
 		String title 	= card.getTitle();
 		
-		System.out.print(name + "\n");
+		System.out.print(name + "\n\n");
 		
 		if (id == 1 || id == 2 || id == 13 || id == 17 || id == 20 || id == 21)
 		{

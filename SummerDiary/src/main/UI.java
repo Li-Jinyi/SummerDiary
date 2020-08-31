@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -48,21 +49,13 @@ public class UI
 		for (int i = 0; i < 8; i++)
 		{
 			if (i == 0 || i == 1)
-			{
 				cardset = cards.getCardsONE();
-			}
 			else if (i == 2 || i == 3)
-			{
 				cardset = cards.getCardsTWO();
-			}
 			else if (i == 4 || i == 5)
-			{
 				cardset = cards.getCardsTHREE();
-			}
 			else
-			{
 				cardset = cards.getCardsFOUR();
-			}
 			
 			System.out.print("第"+ (i+1) +"周的生活开始啦，");
 			
@@ -70,17 +63,18 @@ public class UI
 			{
 				System.out.print("请第" + (j+1) + "位玩家舍弃以下的一种活动，并组织另外两项");
 				
-				int[] randomNumber = cards.randomNumber();
+				List<Integer> randomNumber = new ArrayList(Arrays.asList(cards.randomNumber()));
 				
 				System.out.print("\n\n1.");
-				cards.printCard(cardset[randomNumber[0]]);
+				cards.printCard(cardset[randomNumber.get(0)]);
 				System.out.print("\n\n2.");
-				cards.printCard(cardset[randomNumber[1]]);
+				cards.printCard(cardset[randomNumber.get(1)]);
 				System.out.print("\n\n3.");
-				cards.printCard(cardset[randomNumber[2]]);
+				cards.printCard(cardset[randomNumber.get(2)]);
 				
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();
+				randomNumber.remove(discard-1);
 			}
 		}
 	}
@@ -168,5 +162,39 @@ public class UI
 			String title = titles.get(i);
 			System.out.print("\t\t\t" + title + "\n");
 		}
+	}
+	
+	public int checkCardType(int id)
+	{
+		if (id == 1 || id == 2 || id == 13 || id == 17 || id == 20 || id == 21)
+		{
+			return 1;
+		}
+		else if (id == 6 || id == 8 || id == 15)
+		{
+			return 2;
+		}
+		else if (id == 7 || id == 9 || id == 16 || id == 23)
+		{
+			return 3;
+		}
+		else if (id == 3 || id == 4 || id == 10 || id == 11 || id == 18 || id == 22)
+		{
+			return 4;
+		}
+		else if (id == 5 || id == 14)
+		{
+			return 5;
+		}
+		else if (id == 12)
+		{
+			return 6;
+		}
+		else if (id == 19)
+		{
+			return 7;
+		}
+		
+		return 8;
 	}
 }
