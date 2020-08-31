@@ -6,22 +6,37 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		Generator g = new Generator();
+		Cards c = new Cards();
+		c.setupCards();
 		
-		int i = g.generateRandomNumber();
-		int j = g.generateRandomNumber();
-		int k = g.generateRandomNumber();
+		Card[] cardsONE = c.getCardsONE();
+		Card[] cardsTWO = c.getCardsTWO();
+		Card[] cardsTHREE = c.getCardsTHREE();
+		Card[] cardsFOUR = c.getCardsFOUR();
 		
-		while (j == i)
+		for (int i = 0; i < cardsONE.length; i++)
 		{
-			j = g.generateRandomNumber();
-		}
-		while (k == i || k == j)
-		{
-			k = g.generateRandomNumber();
+			c.printCard(cardsONE[i]);
+			System.out.print("\n\n");
 		}
 		
-		System.out.print(i + "" + j + "" + k);
+		for (int i = 0; i < cardsTWO.length; i++)
+		{
+			c.printCard(cardsTWO[i]);
+			System.out.print("\n\n");
+		}
+		
+		for (int i = 0; i < cardsTHREE.length; i++)
+		{
+			c.printCard(cardsTHREE[i]);
+			System.out.print("\n\n");
+		}
+		
+		for (int i = 0; i < cardsFOUR.length; i++)
+		{
+			c.printCard(cardsFOUR[i]);
+			System.out.print("\n\n");
+		}
 	}
 
 }

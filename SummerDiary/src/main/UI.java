@@ -11,8 +11,10 @@ public class UI
 	private List<Player> players = new ArrayList<Player>();
 	private Generator g;
 	private Names names;
+	private Cards cards;
 	
 	private int[] genders;
+	private Card[] cardset;
 	//String name, int score, String[] titles, int titleNumber, int heart, int page
 	
 	public void welcome()
@@ -30,18 +32,52 @@ public class UI
 		System.out.print("\n\n第三位玩家~");
 		players.add(setupPlayer());
 		
+		genders = new int[3];
+		genders[0] = players.get(0).getGender();
+		genders[1] = players.get(1).getGender();
+		genders[2] = players.get(2).getGender();
+		
 		printPlayersData();
 		System.out.print("\n\n信息收录完毕，开始游戏了呦~哈吉马路！\n\n");
 	}
 	
 	public void game()
 	{
+		cards.setupCards();
+		
 		for (int i = 0; i < 8; i++)
 		{
+			if (i == 0 || i == 1)
+			{
+				cardset = cards.getCardsONE();
+			}
+			else if (i == 2 || i == 3)
+			{
+				cardset = cards.getCardsTWO();
+			}
+			else if (i == 4 || i == 5)
+			{
+				cardset = cards.getCardsTHREE();
+			}
+			else
+			{
+				cardset = cards.getCardsFOUR();
+			}
+			
 			System.out.print("第"+ (i+1) +"周的生活开始啦，");
+			
 			for (int j = 0; j < 3; j++)
 			{
-				System.out.print("请第" + (j+1) + "位玩家舍弃以下的一种活动，并组织另外两项\n");
+				System.out.print("请第" + (j+1) + "位玩家舍弃以下的一种活动，并组织另外两项");
+				
+				int[] randomNumber = cards.randomNumber();
+				
+				System.out.print("\n\n1.");
+				cards.printCard(cardset[randomNumber[0]]);
+				System.out.print("\n\n2.");
+				cards.printCard(cardset[randomNumber[1]]);
+				System.out.print("\n\n3.");
+				cards.printCard(cardset[randomNumber[2]]);
 				
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();
