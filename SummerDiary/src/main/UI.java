@@ -79,6 +79,27 @@ public class UI
 		}
 	}
 	
+	public void typeONE(int[] at, Card card)
+	{
+		int[] scores = card.getScores();
+		int score;
+		
+		int an = at[0] + at[1] + at[2];
+		
+		if (an >= 1)
+		{
+			score = scores[0];
+		}
+		else
+		{
+			score = scores[1];
+		}
+		
+		players.get(0).addScore(score*at[0]);
+		players.get(1).addScore(score*at[1]);
+		players.get(2).addScore(score*at[2]);
+	}
+	
 	public Player setupPlayer()
 	{
 		System.out.print("请选择姓名~（输入数字）\n\n");

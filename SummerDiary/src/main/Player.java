@@ -94,5 +94,8 @@ public class Player
 		this.gender = gender;
 	}
 
-	
+	public void addScore(int i)
+	{
+		score = score + i;
+	}
 }
