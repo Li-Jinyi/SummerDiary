@@ -7,6 +7,11 @@ public class Schedule
 {
 	private int[] week;
 	
+	public Schedule(int[] newWeek)
+	{
+		setWeek(newWeek);
+	}
+	
 	public int[] getWeek()
 	{
 		return week;

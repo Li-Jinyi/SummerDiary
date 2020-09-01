@@ -16,6 +16,9 @@ public class UI
 	
 	private int[] genders;
 	private Card[] cardset;
+	private Schedule weekONE;
+	private Schedule weekTWO;
+	private Schedule weekTHREE;
 	//String name, int score, String[] titles, int titleNumber, int heart, int page
 	
 	public void welcome()
@@ -45,6 +48,10 @@ public class UI
 	public void game()
 	{
 		cards.setupCards();
+		int[] week = new int[] {0, 0, 0, 0, 0, 0, 0};
+		weekONE = new Schedule(week);
+		weekTWO = new Schedule(week);
+		weekTHREE = new Schedule(week);
 		
 		for (int i = 0; i < 8; i++)
 		{
@@ -75,6 +82,14 @@ public class UI
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();
 				randomNumber.remove(discard-1);
+				
+				Card cardONE = cardset[randomNumber.get(0)];
+				Card cardTWO = cardset[randomNumber.get(1)];
+				
+				System.out.print("\n\n希望在哪一天举行这个活动？（输入数字，即起始日期）");
+				int startDayONE = getIntInput();
+				System.out.print("有谁加入？（输入数字，即玩家号码,0为无人参与）");
+				
 			}
 		}
 	}
