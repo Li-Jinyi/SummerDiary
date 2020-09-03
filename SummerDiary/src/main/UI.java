@@ -12,13 +12,14 @@ public class UI
 	private List<Player> players = new ArrayList<Player>();
 	private Generator g;
 	private Names names;
-	private Cards cards;
+	private Cards cards = new Cards();;
 	
 	private int[] genders;
 	private Card[] cardset;
 	private Schedule weekONE;
 	private Schedule weekTWO;
 	private Schedule weekTHREE;
+	private int[] join;
 	//String name, int score, String[] titles, int titleNumber, int heart, int page
 	
 	public void welcome()
@@ -52,6 +53,7 @@ public class UI
 		weekONE = new Schedule(week);
 		weekTWO = new Schedule(week);
 		weekTHREE = new Schedule(week);
+		join = new int[] {0, 0, 0};
 		
 		for (int i = 0; i < 8; i++)
 		{
@@ -73,23 +75,40 @@ public class UI
 				List<Integer> randomNumber = new ArrayList(Arrays.asList(cards.randomNumber()));
 				
 				System.out.print("\n\n1.");
-				cards.printCard(cardset[randomNumber.get(0)]);
+				cards.printCard(cardset[randomNumber.get(0)-1]);
 				System.out.print("\n\n2.");
-				cards.printCard(cardset[randomNumber.get(1)]);
+				cards.printCard(cardset[randomNumber.get(1)-1]);
 				System.out.print("\n\n3.");
-				cards.printCard(cardset[randomNumber.get(2)]);
+				cards.printCard(cardset[randomNumber.get(2)-1]);
 				
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();
 				randomNumber.remove(discard-1);
 				
-				Card cardONE = cardset[randomNumber.get(0)];
-				Card cardTWO = cardset[randomNumber.get(1)];
+				Card cardONE = cardset[randomNumber.get(0)-1];
+				Card cardTWO = cardset[randomNumber.get(1)-1];
 				
-				System.out.print("\n\n希望在哪一天举行这个活动？（输入数字，即起始日期）");
+				System.out.print("\n\n希望在哪一天举行这个活动？（输入数字，即起始日期）\n");
 				int startDayONE = getIntInput();
-				System.out.print("有谁加入？（输入数字，即玩家号码,0为无人参与）");
+				System.out.print("\n\n有谁加入？（输入数字，即玩家号码,0为无人参与）\n");
 				
+				int firstJoin = getIntInput();
+				if (!(firstJoin == 0))
+				{
+					join[firstJoin-1] = 1;
+					System.out.print("\n\n还有谁！！！\n");
+					int secondJoin = getIntInput();
+					if (!(secondJoin == 0))
+					{
+						join[secondJoin-1] = 1;
+						System.out.print("\n\n该不会都去吧？\n");
+						int thirdJoin = getIntInput();
+						if (!(thirdJoin == 0))
+						{
+							join[thirdJoin-1] = 1;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -146,12 +165,6 @@ public class UI
 	{
 		String s = sc.next();
 		return s;
-	}
-	
-	public int[] countData(int[] data)
-	{
-		int[] Data = {};
-		return Data;
 	}
 	
 	public void printPlayersData()
@@ -232,5 +245,39 @@ public class UI
 		}
 		
 		return 8;
+	}
+	
+	public int numberJoined(int[] Join)
+	{
+		int result = 0;
+		for (int i = 0; i < Join.length; i++)
+		{
+			if (Join[i] == 1)
+			{
+				result = result + 1;
+			}
+		}
+		
+		return result;
+	}
+	
+	public boolean isHomo(int[] Join, Player[] Players)
+	{
+		int result = 0;
+		
+		for (int i = 0; i < Join.length; i++)
+		{
+			if (Join[i] == 1)
+			{
+				result = result + Players[i].getGender();
+			}
+		}
+		
+		if (result == numberJoined(Join))
+		{
+			return true;
+		}
+		
+		return false;
 	}
 }

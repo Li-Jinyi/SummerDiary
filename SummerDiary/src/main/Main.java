@@ -40,16 +40,9 @@ public class Main
 //			System.out.print("\n\n");
 //		}
 		
-		List<Integer> l = new ArrayList<Integer>();
-		l.add(1);
-		l.add(2);
-		l.add(3);
-		
-		System.out.print(l.get(0) + " " + l.get(1) + " " + l.get(2) + "\n");
-		
-		l.remove(1);
-		
-		System.out.print(l.get(0) + " " + l.get(1));
+		UI ui = new UI();
+		ui.welcome();
+		ui.game();
 	}
 
 }
