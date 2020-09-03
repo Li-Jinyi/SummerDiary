@@ -241,6 +241,51 @@ public class UI
 		players.get(2).addScore(score*join[2]);
 	}
 	
+	public void typeSIX(int[] join, Card card)
+	{
+		int[] scores = card.getScores();
+		int score;
+		
+		if (numberJoined(join) == 3)
+		{
+			score = scores[0];
+		}
+		else
+		{
+			score = scores[1];
+		}
+		
+		players.get(0).addScore(score*join[0]);
+		players.get(1).addScore(score*join[1]);
+		players.get(2).addScore(score*join[2]);
+	}
+	
+	public void typeSEVEN(int[] join, Card card)
+	{
+		int[] scores = card.getScores();
+		
+		if (numberJoined(join) <= 1)
+		{
+			System.out.print("\nroll到了" + scores[0] + "呢！！\n");
+			players.get(0).addScore((scores[0]+5)*join[0]);
+			players.get(1).addScore((scores[1]+5)*join[1]);
+			players.get(2).addScore((scores[2]+5)*join[2]);
+		}
+		else
+		{
+			System.out.print("\n让我康康，分别roll到了 ");
+			for (int i = 0; i < numberJoined(join); i++)
+			{
+				System.out.print("\n" + scores[i]);
+			}
+			System.out.print("呀！\n斯国一！！");
+			
+			players.get(0).addScore(scores[0]*join[0]);
+			players.get(1).addScore(scores[1]*join[1]);
+			players.get(2).addScore(scores[2]*join[2]);
+		}
+	}
+	
 	public Player setupPlayer()
 	{
 		System.out.print("请选择姓名~（输入数字）\n\n");
