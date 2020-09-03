@@ -204,6 +204,43 @@ public class UI
 		players.get(2).addScore(score*join[2]);
 	}
 	
+	public void typeFIVE(int[] join, Card card, Player[] Players)
+	{
+		int[] scores = card.getScores();
+		int score;
+		
+		if (scores.length == 2)
+		{
+			if (isHomo(join, Players))
+			{
+				score = scores[0];
+			}
+			else
+			{
+				score = scores[1];
+			}
+		}
+		else
+		{
+			if (numberJoined(join) <= 1)
+			{
+				score = scores[2];
+			}
+			else if (isHomo(join, Players))
+			{
+				score = scores[0];
+			}
+			else
+			{
+				score = scores[1];
+			}
+		}
+
+		players.get(0).addScore(score*join[0]);
+		players.get(1).addScore(score*join[1]);
+		players.get(2).addScore(score*join[2]);
+	}
+	
 	public Player setupPlayer()
 	{
 		System.out.print("请选择姓名~（输入数字）\n\n");
