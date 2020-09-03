@@ -286,6 +286,22 @@ public class UI
 		}
 	}
 	
+	public void typeEIGHT(int[] join, Card card)
+	{
+		int[] scores = card.getScores();
+		
+		System.out.print("\n让我康康，分别roll到了 ");
+		for (int i = 0; i < numberJoined(join); i++)
+		{
+			System.out.print("\n" + scores[i]);
+		}
+		System.out.print("呀！\n斯国一！！");
+		
+		players.get(0).addScore(scores[0]*join[0]);
+		players.get(1).addScore(scores[1]*join[1]);
+		players.get(2).addScore(scores[2]*join[2]);
+	}
+	
 	public Player setupPlayer()
 	{
 		System.out.print("请选择姓名~（输入数字）\n\n");
