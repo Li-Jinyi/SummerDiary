@@ -96,14 +96,14 @@ public class UI
 		}
 	}
 	
-	public void typeONE(int[] at, Card card)
+	public void typeONE(int[] join, Card card)
 	{
 		int[] scores = card.getScores();
 		int score;
 		
-		int an = at[0] + at[1] + at[2];
+		int joined = numberJoined(join);
 		
-		if (an >= 1)
+		if (joined > 1)
 		{
 			score = scores[0];
 		}
@@ -112,9 +112,34 @@ public class UI
 			score = scores[1];
 		}
 		
-		players.get(0).addScore(score*at[0]);
-		players.get(1).addScore(score*at[1]);
-		players.get(2).addScore(score*at[2]);
+		players.get(0).addScore(score*join[0]);
+		players.get(1).addScore(score*join[1]);
+		players.get(2).addScore(score*join[2]);
+	}
+	
+	public void typeTWO(int[] join, Card card)
+	{
+		int[] scores = card.getScores();
+		int score;
+		
+		int joined = numberJoined(join);
+		
+		if (joined <= 1)
+		{
+			score = scores[2];
+		}
+		else if (joined % 2 == 0)
+		{
+			score = scores[0];
+		}
+		else
+		{
+			score = scores[1];
+		}
+		
+		players.get(0).addScore(score*join[0]);
+		players.get(1).addScore(score*join[1]);
+		players.get(2).addScore(score*join[2]);
 	}
 	
 	public Player setupPlayer()
