@@ -53,7 +53,6 @@ public class UI
 		weekONE = new Schedule(week);
 		weekTWO = new Schedule(week);
 		weekTHREE = new Schedule(week);
-		join = new int[] {0, 0, 0};
 		
 		for (int i = 0; i < 8; i++)
 		{
@@ -72,43 +71,27 @@ public class UI
 			{
 				System.out.print("请第" + (j+1) + "位玩家舍弃以下的一种活动，并组织另外两项");
 				
-				List<Integer> randomNumber = new ArrayList(Arrays.asList(cards.randomNumber()));
+				int[] randomNumber = cards.randomNumber();
 				
 				System.out.print("\n\n1.");
-				cards.printCard(cardset[randomNumber.get(0)-1]);
+				cards.printCard(cardset[randomNumber[0]-1]);
 				System.out.print("\n\n2.");
-				cards.printCard(cardset[randomNumber.get(1)-1]);
+				cards.printCard(cardset[randomNumber[1]-1]);
 				System.out.print("\n\n3.");
-				cards.printCard(cardset[randomNumber.get(2)-1]);
+				cards.printCard(cardset[randomNumber[2]-1]);
 				
 				System.out.print("请选择舍弃的活动（输入数字）\n");
 				int discard = getIntInput();
-				randomNumber.remove(discard-1);
+				randomNumber[discard-1] = 0;
+				randomNumber = removeZero(randomNumber);
 				
-				Card cardONE = cardset[randomNumber.get(0)-1];
-				Card cardTWO = cardset[randomNumber.get(1)-1];
+				Card cardONE = cardset[randomNumber[0]-1];
+				Card cardTWO = cardset[randomNumber[1]-1];
 				
-				System.out.print("\n\n希望在哪一天举行这个活动？（输入数字，即起始日期）\n");
+				System.out.print("\n\n活动一，希望在哪一天举行这个活动？（输入数字，即起始日期）\n");
 				int startDayONE = getIntInput();
-				System.out.print("\n\n有谁加入？（输入数字，即玩家号码,0为无人参与）\n");
+				join = countJoin();
 				
-				int firstJoin = getIntInput();
-				if (!(firstJoin == 0))
-				{
-					join[firstJoin-1] = 1;
-					System.out.print("\n\n还有谁！！！\n");
-					int secondJoin = getIntInput();
-					if (!(secondJoin == 0))
-					{
-						join[secondJoin-1] = 1;
-						System.out.print("\n\n该不会都去吧？\n");
-						int thirdJoin = getIntInput();
-						if (!(thirdJoin == 0))
-						{
-							join[thirdJoin-1] = 1;
-						}
-					}
-				}
 			}
 		}
 	}
@@ -279,5 +262,50 @@ public class UI
 		}
 		
 		return false;
+	}
+	
+	public int[] removeZero(int[] array)
+	{
+		int index = 0;
+		
+		for(int i = 0; i < array.length; i++)
+		{
+			if (array[i] == 1)
+			{
+				array[index++] = array[i];
+			}
+		}
+		
+		int[] result = new int[index];
+		System.arraycopy(array, 0, result, 0, index);
+		
+		return result;
+	}
+	
+	public int[] countJoin()
+	{
+		join = new int[] {0, 0, 0};
+		
+		System.out.print("\n\n有谁加入？（输入数字，即玩家号码,0为无人参与）\n");
+		
+		int firstJoin = getIntInput();
+		if (!(firstJoin == 0))
+		{
+			join[firstJoin-1] = 1;
+			System.out.print("\n\n还有谁！！！\n");
+			int secondJoin = getIntInput();
+			if (!(secondJoin == 0))
+			{
+				join[secondJoin-1] = 1;
+				System.out.print("\n\n该不会都去吧？\n");
+				int thirdJoin = getIntInput();
+				if (!(thirdJoin == 0))
+				{
+					join[thirdJoin-1] = 1;
+				}
+			}
+		}
+		
+		return join;
 	}
 }
