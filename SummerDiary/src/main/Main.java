@@ -40,9 +40,28 @@ public class Main
 //			System.out.print("\n\n");
 //		}
 		
-		UI ui = new UI();
-		ui.welcome();
-		ui.game();
+//		UI ui = new UI();
+//		ui.welcome();
+//		ui.game();
+		
+		double x=Math.random();
+		double y=2.0;
+		System.out.println("x: " + x + "	y: " + y + "\n");
+		
+		x+=y+1;
+		System.out.println("x: " + x + "	y: " + y + "\n");
+		
+		double z=x-y;
+		System.out.println("x: " + x + "	y: " + y + "	z: " + z + "\n");
+		
+		x=Math.random();
+		System.out.println("x: " + x + "	y: " + y + "	z: " + z + "\n");
+		
+		if(x>0.5){
+		  x=0.5;
+		}
+		
+		System.out.println("x: " + x + "	y: " + y + "	z: " + z + "\n");
 	}
 
 }
